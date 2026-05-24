@@ -151,110 +151,117 @@
     <script>
         // PEŁNA AGREGACJA OFERT: BIP (KD-19), ZBK, ZPAP, Wolny Rynek
         const allOffersData = [
-            // --- ŹRÓDŁO: BIP / MIASTO KRAKÓW (KD-19) ---
             {
                 id: 1, sourceCategory: "KD-19",
                 title: "Obszerny lokal blisko Rynku z łazienką", address: "ul. Szewska 4A, Kraków",
                 type: "Miejski Program (KD-19)", status: "Oczekiwanie na nowy wykaz",
-                deadline: "Cykliczne nabory. Sprawdzaj BIP.", area: "44,82 m²", floor: "2 piętro",
+                deadline: "Cykliczne nabory. Sprawdzaj BIP.", deadlineDate: "2026-05-30T15:00:00", area: "44,82 m²", floor: "2 piętro",
                 lat: 50.0620, lng: 19.9348,
                 priceEstimate: "ok. 450 - 600 zł / m-c", priceFormula: "6,50 - 8,50 zł/m² + ogrzewanie",
                 description: "Wyjątkowa lokalizacja obok Rynku. Posiada 3 wydzielone pomieszczenia oraz węzeł sanitarny. Doskonałe na cichą pracownię (malarstwo, rysunek).",
                 contact: "ZBK - BOM 1 (Rynek Kleparski 4), tel. 12 291 29 07",
                 financials: "Strefa I - najwyższy czynsz komunalny. Niski koszt remontu wejściowego.",
                 formals: "Wysoce konkurencyjna oferta - wymaga bardzo mocnego portfolio przed Komisją.",
-                statusColor: "bg-indigo-100 text-indigo-800", markerColor: "#4f46e5"
+                statusColor: "bg-indigo-100 text-indigo-800", markerColor: "#4f46e5",
+                originalStatus: "Oczekiwanie na nowy wykaz", originalStatusColor: "bg-indigo-100 text-indigo-800"
             },
             {
                 id: 2, sourceCategory: "KD-19",
                 title: "Zestaw 3 pomieszczeń na Śródmieściu", address: "ul. Bonerowska 14, Kraków",
                 type: "Miejski Program (KD-19)", status: "Oczekiwanie na nowy wykaz",
-                deadline: "Nabory cykliczne.", area: "68,60 m²", floor: "3 piętro",
+                deadline: "Nabory cykliczne.", deadlineDate: "2026-05-24T10:00:00", area: "68,60 m²", floor: "3 piętro",
                 lat: 50.0588, lng: 19.9455,
                 priceEstimate: "ok. 500 zł / m-c", priceFormula: "Stawka ZBK + media",
                 description: "Przestronny lokal, 3 połączone izby robocze oraz węzły sanitarne. Duży metraż = preferencje dla kolektywu.",
                 contact: "ZBK - BOM 1 (Rynek Kleparski 4), tel. 12 291 29 02",
                 financials: "Koszty adaptacyjne i opłaty dzielone na kolektyw.",
                 formals: "Wniosek grupy twórczej (współnajemców).",
-                statusColor: "bg-indigo-100 text-indigo-800", markerColor: "#4f46e5"
+                statusColor: "bg-indigo-100 text-indigo-800", markerColor: "#4f46e5",
+                originalStatus: "Oczekiwanie na nowy wykaz", originalStatusColor: "bg-indigo-100 text-indigo-800"
             },
             {
                 id: 3, sourceCategory: "KD-19",
                 title: "Przyziemie pod ciężki sprzęt", address: "ul. Mogilska 15A, Kraków",
                 type: "Miejski Program (KD-19)", status: "Archiwalny / W rozpatrywaniu",
-                deadline: "Nabór zamknięty. Trwa opiniowanie przez Komisję.", area: "22,45 m²", floor: "Parter",
+                deadline: "Nabór zamknięty. Trwa opiniowanie przez Komisję.", deadlineDate: "2026-05-20T12:00:00", area: "22,45 m²", floor: "Parter",
                 lat: 50.0655, lng: 19.9575,
                 priceEstimate: "ok. 120 zł / m-c", priceFormula: "1,89 - 3,50 zł/m² + prąd",
                 description: "Jedno pomieszczenie w przyziemiu wraz z łazienką. Parter jest idealny dla rzeźbiarzy czy grafików.",
                 contact: "ZBK - BOM 1 (Rynek Kleparski 4), tel. 12 291 29 07",
                 financials: "Zabezpieczenie przed wilgocią we własnym zakresie. Niezwykle niski czynsz.",
                 formals: "Udokumentowanie konieczności pracy na parterze (prasy, piece).",
-                statusColor: "bg-slate-200 text-slate-700", markerColor: "#64748b"
+                statusColor: "bg-slate-200 text-slate-700", markerColor: "#64748b",
+                originalStatus: "Archiwalny / W rozpatrywaniu", originalStatusColor: "bg-slate-200 text-slate-700"
             },
             {
                 id: 4, sourceCategory: "KD-19",
                 title: "Olbrzymi lokal na Podgórzu (5 pokoi)", address: "pl. Serkowskiego 6, Kraków",
                 type: "Miejski Program (KD-19)", status: "Archiwalny",
-                deadline: "Nabór zamknięty.", area: "111,16 m²", floor: "1 piętro",
+                deadline: "Nabór zamknięty.", deadlineDate: "2026-05-15T00:00:00", area: "111,16 m²", floor: "1 piętro",
                 lat: 50.0416, lng: 19.9465,
                 priceEstimate: "ok. 800 zł / m-c", priceFormula: "Stawka ZBK * 111m²",
                 description: "5 pomieszczeń do pracy i 2 toalety. Prawdziwa gratka dla większej grupy artystów w historycznym Podgórzu.",
                 contact: "ZBK - BOM 3 (ul. Zamoyskiego 3)",
                 financials: "Wysokie koszty kompleksowego remontu (lokal > 100m²).",
                 formals: "Wyłącznie współnajem (kolektyw min. 3 artystów).",
-                statusColor: "bg-slate-200 text-slate-700", markerColor: "#64748b"
+                statusColor: "bg-slate-200 text-slate-700", markerColor: "#64748b",
+                originalStatus: "Archiwalny", originalStatusColor: "bg-slate-200 text-slate-700"
             },
             {
                 id: 5, sourceCategory: "KD-19",
                 title: "Strych z oknami połaciowymi", address: "ul. Sołtyka 5, Kraków",
                 type: "Miejski Program (KD-19)", status: "Oczekiwanie na nowy wykaz",
-                deadline: "Sprawdzaj BIP.", area: "68,00 m²", floor: "4 piętro (brak windy)",
+                deadline: "Sprawdzaj BIP.", deadlineDate: "2026-06-15T12:00:00", area: "68,00 m²", floor: "4 piętro (brak windy)",
                 lat: 50.0592, lng: 19.9515,
                 priceEstimate: "ok. 300 zł / m-c", priceFormula: "1,89 - 4,50 zł/m² + media",
                 description: "Przestronny strych zaadaptowany na cele twórcze. Doskonałe naturalne światło północne (okna połaciowe).",
                 contact: "Wydział Kultury UMK: tel. 12 616 19 18",
                 financials: "Remont ocieplenia i instalacji wod-kan na własny koszt.",
                 formals: "Ocena portfolio przez Komisję UMK.",
-                statusColor: "bg-indigo-100 text-indigo-800", markerColor: "#4f46e5"
+                statusColor: "bg-indigo-100 text-indigo-800", markerColor: "#4f46e5",
+                originalStatus: "Oczekiwanie na nowy wykaz", originalStatusColor: "bg-indigo-100 text-indigo-800"
             },
             {
                 id: 6, sourceCategory: "KD-19",
                 title: "Pracownia w Nowej Hucie", address: "os. Szkolne 34, Kraków",
                 type: "Miejski Program (KD-19)", status: "Oczekiwanie na nowy wykaz",
-                deadline: "Sprawdzaj BIP.", area: "19,83 m²", floor: "4 piętro",
+                deadline: "Sprawdzaj BIP.", deadlineDate: "2026-06-01T10:00:00", area: "19,83 m²", floor: "4 piętro",
                 lat: 50.0760, lng: 20.0380,
                 priceEstimate: "ok. 150 zł / m-c", priceFormula: "Stawka ZBK (Huta) + centralne ogrzewanie",
                 description: "Bardzo jasne pomieszczenie zlokalizowane wysoko. W sąsiedztwie w dawnej szkole działają inni artyści.",
                 contact: "ZBK - BOM 4 (os. Centrum C 10B)",
                 financials: "Czynsz zryczałtowany wraz z centralnym ogrzewaniem.",
                 formals: "Dyplom ASP lub rekomendacje.",
-                statusColor: "bg-indigo-100 text-indigo-800", markerColor: "#4f46e5"
+                statusColor: "bg-indigo-100 text-indigo-800", markerColor: "#4f46e5",
+                originalStatus: "Oczekiwanie na nowy wykaz", originalStatusColor: "bg-indigo-100 text-indigo-800"
             },
             {
                 id: 7, sourceCategory: "KD-19",
                 title: "Cichy Kazimierz dla Kolektywu", address: "ul. Berka Joselewicza 5, Kraków",
                 type: "Miejski Program (KD-19)", status: "Oczekiwanie na nowy wykaz",
-                deadline: "Sprawdzaj BIP.", area: "85,65 m²", floor: "1 piętro",
+                deadline: "Sprawdzaj BIP.", deadlineDate: "2026-05-28T16:00:00", area: "85,65 m²", floor: "1 piętro",
                 lat: 50.0535, lng: 19.9485,
                 priceEstimate: "ok. 650 zł / m-c", priceFormula: "Stawka strefy I + media",
                 description: "4 pomieszczenia w kultowej dzielnicy. Blisko licznych galerii sztuki.",
                 contact: "ZBK - BOM 6 (pl. Na Groblach 7)",
                 financials: "Wymaga sporych nakładów na generalny remont przed startem.",
                 formals: "Kolektyw artystyczny.",
-                statusColor: "bg-indigo-100 text-indigo-800", markerColor: "#4f46e5"
+                statusColor: "bg-indigo-100 text-indigo-800", markerColor: "#4f46e5",
+                originalStatus: "Oczekiwanie na nowy wykaz", originalStatusColor: "bg-indigo-100 text-indigo-800"
             },
             {
                 id: 8, sourceCategory: "KD-19",
                 title: "Mała pracownia (os. Kolorowe)", address: "os. Kolorowe 12, Kraków",
                 type: "Miejski Program (KD-19)", status: "Oczekiwanie na nowy wykaz",
-                deadline: "Sprawdzaj BIP.", area: "14,95 m²", floor: "5 piętro",
+                deadline: "Sprawdzaj BIP.", deadlineDate: "2026-05-25T23:59:59", area: "14,95 m²", floor: "5 piętro",
                 lat: 50.0750, lng: 20.0210,
                 priceEstimate: "ok. 90 zł / m-c", priceFormula: "Stawka ZBK poza centrum",
                 description: "2 małe pokoiki i WC. Piąte piętro zapewnia spokój, ale bez windy trudne wnoszenie płócien.",
                 contact: "ZBK - BOM 4 (os. Centrum C 10B)",
                 financials: "Najniższe z możliwych opłaty w mieście.",
                 formals: "Wniosek indywidualny.",
-                statusColor: "bg-indigo-100 text-indigo-800", markerColor: "#4f46e5"
+                statusColor: "bg-indigo-100 text-indigo-800", markerColor: "#4f46e5",
+                originalStatus: "Oczekiwanie na nowy wykaz", originalStatusColor: "bg-indigo-100 text-indigo-800"
             },
 
             // --- ŹRÓDŁO: ZPAP (ZWIĄZKOWE) ---
@@ -262,14 +269,15 @@
                 id: 9, sourceCategory: "ZPAP",
                 title: "Pawilon Rzeźbiarski ZPAP", address: "ul. Emaus 20, Kraków (Wola Justowska)",
                 type: "Zarząd ZPAP Kraków", status: "Konkurs Ofert",
-                deadline: "Wewnętrzne ogłoszenia Związku", area: "ok. 35,00 m²", floor: "Parter (Hala)",
+                deadline: "Wewnętrzne ogłoszenia Związku", deadlineDate: "2026-06-10T15:00:00", area: "ok. 35,00 m²", floor: "Parter (Hala)",
                 lat: 50.0545, lng: 19.8970,
                 priceEstimate: "ok. 450 zł / m-c", priceFormula: "Uchwały Zarządu ZPAP",
                 description: "Legendarne pawilony zbudowane z myślą o krakowskich rzeźbiarzach. Posiadają odpowiednią konstrukcję, doświetlenie i dojazd.",
                 contact: "Biuro Zarządu Okręgu ZPAP w Krakowie",
                 financials: "Brak zwrotu kosztów adaptacji. Czynsz regulowany przez Związek.",
                 formals: "OFERTA TYLKO DLA CZYNNYCH CZŁONKÓW ZPAP (opłacone składki).",
-                statusColor: "bg-amber-100 text-amber-800", markerColor: "#d97706"
+                statusColor: "bg-amber-100 text-amber-800", markerColor: "#d97706",
+                originalStatus: "Konkurs Ofert", originalStatusColor: "bg-amber-100 text-amber-800"
             },
 
             // --- ŹRÓDŁO: PRYWATNE / RYNEK / FUNDACJE ---
@@ -277,33 +285,65 @@
                 id: 10, sourceCategory: "Prywatne",
                 title: "Kameralny lokal w oficynie fundacji", address: "ul. Józefa 22, Kraków",
                 type: "Rynek Prywatny / Fundacja", status: "Dostępne od zaraz",
-                deadline: "Oferta z wolnego rynku", area: "32,00 m²", floor: "1 piętro (oficyna)",
+                deadline: "Oferta z wolnego rynku", deadlineDate: null, area: "32,00 m²", floor: "1 piętro (oficyna)",
                 lat: 50.0506, lng: 19.9458,
                 priceEstimate: "1 400 zł / m-c", priceFormula: "43,75 zł/m² rynkowa",
                 description: "Cichy pokój dedykowany pracy koncepcyjnej lub małej pracowni (np. ilustracja, biżuteria). Okna na zielone podwórko Kazimierza.",
                 contact: "Prywatny Właściciel, tel. 504-xxx-xxx",
                 financials: "Rynkowa stawka, ale gotowe do wejścia (odpada koszt remontu z KD-19). Kaucja 1 miesiąc.",
                 formals: "Bez procedury miejskiej. Umowa B2B lub najem okazjonalny.",
-                statusColor: "bg-emerald-100 text-emerald-800", markerColor: "#10b981"
+                statusColor: "bg-emerald-100 text-emerald-800", markerColor: "#10b981",
+                originalStatus: "Dostępne od zaraz", originalStatusColor: "bg-emerald-100 text-emerald-800"
             },
             {
                 id: 11, sourceCategory: "Prywatne",
                 title: "Gotowe przyziemie pod ceramikę", address: "ul. Blich 5, Kraków",
                 type: "Rynek Prywatny", status: "Dostępne od zaraz",
-                deadline: "Oferta z wolnego rynku", area: "38,00 m²", floor: "Przyziemie",
+                deadline: "Oferta z wolnego rynku", deadlineDate: "2026-05-27T18:00:00", area: "38,00 m²", floor: "Przyziemie",
                 lat: 50.0598, lng: 19.9488,
                 priceEstimate: "1 550 zł / m-c", priceFormula: "40,78 zł/m² + woda/prąd",
                 description: "Lokal po remoncie instalacji siłowej (3-fazy). Doskonały na studio ceramiki, z osobnym wejściem od dziedzińca, nikomu nie przeszkadza hałas.",
                 contact: "Prywatny Wynajem, tel. 501-xxx-xxx",
                 financials: "Stała stawka czynszu rynkowego. Kaucja zwrotna 2500 zł.",
                 formals: "Bez weryfikacji portfolio artystycznego. Podpisanie umowy na min. rok.",
-                statusColor: "bg-emerald-100 text-emerald-800", markerColor: "#10b981"
+                statusColor: "bg-emerald-100 text-emerald-800", markerColor: "#10b981",
+                originalStatus: "Dostępne od zaraz", originalStatusColor: "bg-emerald-100 text-emerald-800"
             }
         ];
 
         let map = null;
         let markersGroup = [];
         let currentFilter = 'ALL';
+        let updateInterval = null;
+
+        function updateOffersStatus() {
+            const now = new Date();
+            allOffersData.forEach(offer => {
+                if (offer.deadlineDate) {
+                    const deadline = new Date(offer.deadlineDate);
+                    if (now > deadline) {
+                        offer.status = "Wygasła";
+                        offer.statusColor = "bg-rose-100 text-rose-800";
+                        offer.timeRemaining = "Zakończono zbieranie ofert";
+                    } else {
+                        offer.status = offer.originalStatus;
+                        offer.statusColor = offer.originalStatusColor;
+                        const diff = deadline - now;
+                        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                        const mins = Math.floor((diff / 1000 / 60) % 60);
+                        offer.timeRemaining = \`Pozostało: \${days}d \${hours}h \${mins}m\`;
+                    }
+                } else {
+                    offer.timeRemaining = "Oferta ciągła (Brak daty końcowej)";
+                }
+            });
+            
+            const modal = document.getElementById('details-modal');
+            if (modal.classList.contains('hidden')) {
+                renderList();
+            }
+        }
 
         function checkAndSyncData() {
             const SYNC_INTERVAL = 12 * 60 * 60 * 1000; 
@@ -328,13 +368,14 @@
                 let now = new Date().getTime();
                 localStorage.setItem('kapt_full_sync', now);
                 updateSyncText(now);
+                updateOffersStatus(); 
                 renderList(); 
             }, 2000);
         }
 
         function updateSyncText(timestamp) {
             let date = new Date(parseInt(timestamp));
-            let str = `Agregacja: dzisiaj, ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+            let str = \`Agregacja: dzisiaj, \${date.getHours().toString().padStart(2, '0')}:\${date.getMinutes().toString().padStart(2, '0')}\`;
             document.getElementById('sync-text').innerText = str;
             document.getElementById('sync-text-mobile').innerText = "Zsynchronizowano";
         }
@@ -342,16 +383,25 @@
         function forceSync() { triggerSyncAnimation(); }
 
         document.addEventListener('DOMContentLoaded', () => {
+            updateOffersStatus();
+            updateInterval = setInterval(() => {
+                updateOffersStatus();
+                const modal = document.getElementById('details-modal');
+                if (!modal.classList.contains('hidden')) {
+                    const title = document.getElementById('modal-title').innerText;
+                    const offer = allOffersData.find(o => o.title === title);
+                    if(offer) openDetails(offer.id);
+                }
+            }, 60000);
             checkAndSyncData();
-            renderList();
             initMap();
         });
 
         function switchTab(tabId) {
             const tabs = ['list', 'map', 'guide'];
             tabs.forEach(t => {
-                const btn = document.getElementById(`btn-${t}`);
-                const view = document.getElementById(`view-${t}`);
+                const btn = document.getElementById(\`btn-\${t}\`);
+                const view = document.getElementById(\`view-\${t}\`);
                 if (t === tabId) {
                     btn.classList.add('text-indigo-600', 'bg-indigo-50/30');
                     btn.classList.remove('text-slate-500', 'bg-white');
@@ -363,13 +413,12 @@
                 }
             });
 
-            // Toggle filter bar
             document.getElementById('filter-bar').style.display = (tabId === 'list') ? 'block' : 'none';
 
             if (tabId === 'map' && map) {
                 setTimeout(() => {
                     map.invalidateSize();
-                    centerMap(); // Auto dopasowanie przy zmianie widoku
+                    centerMap(); 
                 }, 150);
             }
         }
@@ -380,7 +429,7 @@
                 btn.classList.remove('bg-indigo-600', 'text-white');
                 btn.classList.add('bg-slate-100', 'text-slate-600');
             });
-            const activeBtn = document.getElementById(`filter-${source}`);
+            const activeBtn = document.getElementById(\`filter-\${source}\`);
             activeBtn.classList.remove('bg-slate-100', 'text-slate-600');
             activeBtn.classList.add('bg-indigo-600', 'text-white');
             
@@ -399,49 +448,53 @@
             const filtered = getFilteredOffers();
 
             if (filtered.length === 0) {
-                listContainer.innerHTML = `<p class="text-center text-slate-500 py-10">Brak ofert w wybranym źródle.</p>`;
+                listContainer.innerHTML = \`<p class="text-center text-slate-500 py-10">Brak ofert w wybranym źródle.</p>\`;
                 return;
             }
 
             filtered.forEach(offer => {
+                const isExpired = offer.status === "Wygasła";
                 const card = document.createElement('div');
-                card.className = "bg-white p-5 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-indigo-400 hover:shadow-md transition-all mb-4 group";
+                card.className = \`bg-white p-5 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-indigo-400 hover:shadow-md transition-all mb-4 group \${isExpired ? 'opacity-75 grayscale-[50%]' : ''}\`;
                 card.onclick = () => openDetails(offer.id);
                 
-                card.innerHTML = `
+                card.innerHTML = \`
                     <div class="flex justify-between items-start mb-3">
                         <span class="text-[10px] font-black px-2.5 py-1 rounded-md border border-slate-200 bg-slate-50 text-slate-600 uppercase tracking-widest">
-                            Źródło: ${offer.sourceCategory}
+                            Źródło: \${offer.sourceCategory}
                         </span>
-                        <span class="text-[10px] uppercase font-bold px-2 py-1 rounded ${offer.statusColor}">
-                            ${offer.status}
-                        </span>
+                        <div class="flex flex-col items-end">
+                            <span class="text-[10px] uppercase font-bold px-2 py-1 rounded \${offer.statusColor}">
+                                \${offer.status}
+                            </span>
+                            <span class="text-[9px] mt-1 font-bold \${isExpired ? 'text-rose-600' : 'text-emerald-600'} bg-slate-50 px-1 rounded border border-slate-100">\${offer.timeRemaining}</span>
+                        </div>
                     </div>
                     
-                    <h3 class="font-black text-lg text-slate-900 leading-tight group-hover:text-indigo-700 transition-colors">${offer.title}</h3>
+                    <h3 class="font-black text-lg text-slate-900 leading-tight group-hover:text-indigo-700 transition-colors">\${offer.title}</h3>
                     
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between mt-2 mb-4">
                         <p class="text-sm text-slate-500 flex items-center gap-1.5 font-medium mb-2 sm:mb-0">
                             <svg class="w-4 h-4 text-indigo-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            ${offer.address}
+                            \${offer.address}
                         </p>
                         <div class="text-left sm:text-right">
                             <span class="text-xs text-slate-400 uppercase font-bold block">Szac. koszt miesięczny</span>
-                            <span class="text-emerald-600 font-black text-sm">${offer.priceEstimate}</span>
+                            <span class="text-emerald-600 font-black text-sm">\${offer.priceEstimate}</span>
                         </div>
                     </div>
                     
                     <div class="flex gap-4 text-sm border-t border-slate-100 pt-3">
                         <div class="bg-slate-50 px-3 py-2 rounded-lg border border-slate-100 w-1/2">
                             <span class="block text-[10px] uppercase text-slate-400 font-bold tracking-widest">Metraż</span>
-                            <span class="font-black text-slate-800 text-base">${offer.area}</span>
+                            <span class="font-black text-slate-800 text-base">\${offer.area}</span>
                         </div>
                         <div class="bg-slate-50 px-3 py-2 rounded-lg border border-slate-100 w-1/2">
                             <span class="block text-[10px] uppercase text-slate-400 font-bold tracking-widest">Typ oferty</span>
-                            <span class="font-bold text-slate-700 truncate block" title="${offer.type}">${offer.type}</span>
+                            <span class="font-bold text-slate-700 truncate block" title="\${offer.type}">\${offer.type}</span>
                         </div>
                     </div>
-                `;
+                \`;
                 listContainer.appendChild(card);
             });
         }
@@ -463,13 +516,15 @@
             const filtered = getFilteredOffers();
 
             filtered.forEach(offer => {
+                const isExpired = offer.status === "Wygasła";
+                const bgColor = isExpired ? '#e11d48' : offer.markerColor; // Rose for expired
                 const customIcon = L.divIcon({
-                    html: `
-                        <div style="background-color: ${offer.markerColor};" class="w-9 h-9 rounded-full border-2 border-white shadow-xl flex items-center justify-center text-white text-[10px] font-black">
-                            ${offer.area.split(',')[0]}
+                    html: \`
+                        <div style="background-color: \${bgColor};" class="w-9 h-9 rounded-full border-2 border-white shadow-xl flex items-center justify-center text-white text-[10px] font-black \${isExpired ? 'opacity-70' : ''}">
+                            \${offer.area.split(',')[0]}
                         </div>
-                        <div style="border-top-color: ${offer.markerColor};" class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] absolute left-1/2 -translate-x-1/2 -bottom-1"></div>
-                    `,
+                        <div style="border-top-color: \${bgColor};" class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] absolute left-1/2 -translate-x-1/2 -bottom-1 \${isExpired ? 'opacity-70' : ''}"></div>
+                    \`,
                     className: 'relative hover:scale-110 transition-transform z-10',
                     iconSize: [36, 44], iconAnchor: [18, 44]
                 });
@@ -493,23 +548,26 @@
             const offer = allOffersData.find(o => o.id === id);
             if (!offer) return;
 
+            const isExpired = offer.status === "Wygasła";
+
             document.getElementById('modal-title').innerText = offer.title;
             document.getElementById('modal-subtitle').innerText = offer.address;
             
-            document.getElementById('modal-body').innerHTML = `
+            document.getElementById('modal-body').innerHTML = \`
                 <div class="flex items-center gap-2 mb-4 pb-4 border-b border-slate-100">
-                    <span class="text-[10px] font-black px-2 py-1 rounded border uppercase tracking-widest text-slate-600 bg-slate-50 border-slate-200">${offer.type}</span>
-                    <span class="text-[10px] font-bold uppercase px-2 py-1 rounded ${offer.statusColor}">${offer.status}</span>
+                    <span class="text-[10px] font-black px-2 py-1 rounded border uppercase tracking-widest text-slate-600 bg-slate-50 border-slate-200">\${offer.type}</span>
+                    <span class="text-[10px] font-bold uppercase px-2 py-1 rounded \${offer.statusColor}">\${offer.status}</span>
+                    <span class="text-[10px] font-bold uppercase px-2 py-1 rounded border border-slate-200 \${isExpired ? 'text-rose-600 bg-rose-50' : 'text-emerald-600 bg-emerald-50'}">\${offer.timeRemaining}</span>
                 </div>
 
                 <div class="bg-slate-50 p-4 rounded-2xl grid grid-cols-2 gap-4 border border-slate-200 shadow-sm">
                     <div>
                         <span class="block text-[10px] uppercase text-slate-400 font-bold mb-1 tracking-widest">Metraż</span>
-                        <span class="font-black text-xl text-slate-800">${offer.area}</span>
+                        <span class="font-black text-xl text-slate-800">\${offer.area}</span>
                     </div>
                     <div>
                         <span class="block text-[10px] uppercase text-slate-400 font-bold mb-1 tracking-widest">Kondygnacja</span>
-                        <span class="font-black text-xl text-slate-800">${offer.floor}</span>
+                        <span class="font-black text-xl text-slate-800">\${offer.floor}</span>
                     </div>
                 </div>
 
@@ -520,38 +578,38 @@
                     <div class="relative z-10">
                         <span class="block text-[10px] uppercase text-emerald-600 font-black mb-1 tracking-widest">Szacowany koszt najmu</span>
                         <div class="flex items-baseline gap-2 mb-1">
-                            <span class="font-black text-3xl text-emerald-800">${offer.priceEstimate}</span>
+                            <span class="font-black text-3xl text-emerald-800">\${offer.priceEstimate}</span>
                         </div>
-                        <p class="text-xs text-emerald-700 font-medium">Baza: <span class="font-mono bg-white px-1 py-0.5 rounded">${offer.priceFormula}</span></p>
+                        <p class="text-xs text-emerald-700 font-medium">Baza: <span class="font-mono bg-white px-1 py-0.5 rounded">\${offer.priceFormula}</span></p>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
                     <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl">
                         <span class="block text-[10px] uppercase text-amber-700 font-black mb-1">Koszty finansowe wprost</span>
-                        <p class="text-xs text-amber-900 leading-relaxed font-medium">${offer.financials}</p>
+                        <p class="text-xs text-amber-900 leading-relaxed font-medium">\${offer.financials}</p>
                     </div>
                     <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl">
                         <span class="block text-[10px] uppercase text-blue-700 font-black mb-1">Wymogi formalne</span>
-                        <p class="text-xs text-blue-900 leading-relaxed font-medium">${offer.formals}</p>
+                        <p class="text-xs text-blue-900 leading-relaxed font-medium">\${offer.formals}</p>
                     </div>
                 </div>
 
                 <div class="bg-rose-50 border-l-4 border-rose-500 p-4 rounded-r-xl">
                     <span class="block text-xs uppercase text-rose-800 font-bold mb-1">Termin Zgłoszeń / Status</span>
-                    <p class="text-xs text-rose-900 font-medium">${offer.deadline}</p>
+                    <p class="text-xs text-rose-900 font-medium">\${offer.deadline} \${offer.deadlineDate ? '(do '+new Date(offer.deadlineDate).toLocaleString()+')' : ''}</p>
                 </div>
 
                 <div>
                     <h4 class="font-black text-slate-900 text-sm border-b border-slate-100 pb-2 mb-2">Charakterystyka obiektu</h4>
-                    <p class="leading-relaxed text-sm text-slate-600">${offer.description}</p>
+                    <p class="leading-relaxed text-sm text-slate-600">\${offer.description}</p>
                 </div>
 
                 <div class="bg-slate-100 p-5 rounded-xl mt-4 text-center border border-slate-200">
                     <span class="block text-[10px] uppercase text-slate-500 font-bold mb-1 tracking-widest">Kontakt ds. udostępnienia</span>
-                    <p class="text-sm font-black text-slate-800">${offer.contact}</p>
+                    <p class="text-sm font-black text-slate-800">\${offer.contact}</p>
                 </div>
-            `;
+            \`;
 
             const modal = document.getElementById('details-modal');
             const wrapper = document.getElementById('details-content-wrapper');
