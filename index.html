@@ -332,7 +332,7 @@
                         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
                         const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
                         const mins = Math.floor((diff / 1000 / 60) % 60);
-                        offer.timeRemaining = \`Pozostało: \${days}d \${hours}h \${mins}m\`;
+                        offer.timeRemaining = `Pozostało: ${days}d ${hours}h ${mins}m`;
                     }
                 } else {
                     offer.timeRemaining = "Oferta ciągła (Brak daty końcowej)";
@@ -375,7 +375,7 @@
 
         function updateSyncText(timestamp) {
             let date = new Date(parseInt(timestamp));
-            let str = \`Agregacja: dzisiaj, \${date.getHours().toString().padStart(2, '0')}:\${date.getMinutes().toString().padStart(2, '0')}\`;
+            let str = `Agregacja: dzisiaj, ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
             document.getElementById('sync-text').innerText = str;
             document.getElementById('sync-text-mobile').innerText = "Zsynchronizowano";
         }
@@ -400,8 +400,8 @@
         function switchTab(tabId) {
             const tabs = ['list', 'map', 'guide'];
             tabs.forEach(t => {
-                const btn = document.getElementById(\`btn-\${t}\`);
-                const view = document.getElementById(\`view-\${t}\`);
+                const btn = document.getElementById(`btn-${t}`);
+                const view = document.getElementById(`view-${t}`);
                 if (t === tabId) {
                     btn.classList.add('text-indigo-600', 'bg-indigo-50/30');
                     btn.classList.remove('text-slate-500', 'bg-white');
@@ -429,7 +429,7 @@
                 btn.classList.remove('bg-indigo-600', 'text-white');
                 btn.classList.add('bg-slate-100', 'text-slate-600');
             });
-            const activeBtn = document.getElementById(\`filter-\${source}\`);
+            const activeBtn = document.getElementById(`filter-${source}`);
             activeBtn.classList.remove('bg-slate-100', 'text-slate-600');
             activeBtn.classList.add('bg-indigo-600', 'text-white');
             
@@ -448,53 +448,53 @@
             const filtered = getFilteredOffers();
 
             if (filtered.length === 0) {
-                listContainer.innerHTML = \`<p class="text-center text-slate-500 py-10">Brak ofert w wybranym źródle.</p>\`;
+                listContainer.innerHTML = `<p class="text-center text-slate-500 py-10">Brak ofert w wybranym źródle.</p>`;
                 return;
             }
 
             filtered.forEach(offer => {
                 const isExpired = offer.status === "Wygasła";
                 const card = document.createElement('div');
-                card.className = \`bg-white p-5 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-indigo-400 hover:shadow-md transition-all mb-4 group \${isExpired ? 'opacity-75 grayscale-[50%]' : ''}\`;
+                card.className = `bg-white p-5 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-indigo-400 hover:shadow-md transition-all mb-4 group ${isExpired ? 'opacity-75 grayscale-[50%]' : ''}`;
                 card.onclick = () => openDetails(offer.id);
                 
-                card.innerHTML = \`
+                card.innerHTML = `
                     <div class="flex justify-between items-start mb-3">
                         <span class="text-[10px] font-black px-2.5 py-1 rounded-md border border-slate-200 bg-slate-50 text-slate-600 uppercase tracking-widest">
-                            Źródło: \${offer.sourceCategory}
+                            Źródło: ${offer.sourceCategory}
                         </span>
                         <div class="flex flex-col items-end">
-                            <span class="text-[10px] uppercase font-bold px-2 py-1 rounded \${offer.statusColor}">
-                                \${offer.status}
+                            <span class="text-[10px] uppercase font-bold px-2 py-1 rounded ${offer.statusColor}">
+                                ${offer.status}
                             </span>
-                            <span class="text-[9px] mt-1 font-bold \${isExpired ? 'text-rose-600' : 'text-emerald-600'} bg-slate-50 px-1 rounded border border-slate-100">\${offer.timeRemaining}</span>
+                            <span class="text-[9px] mt-1 font-bold ${isExpired ? 'text-rose-600' : 'text-emerald-600'} bg-slate-50 px-1 rounded border border-slate-100">${offer.timeRemaining}</span>
                         </div>
                     </div>
                     
-                    <h3 class="font-black text-lg text-slate-900 leading-tight group-hover:text-indigo-700 transition-colors">\${offer.title}</h3>
+                    <h3 class="font-black text-lg text-slate-900 leading-tight group-hover:text-indigo-700 transition-colors">${offer.title}</h3>
                     
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between mt-2 mb-4">
                         <p class="text-sm text-slate-500 flex items-center gap-1.5 font-medium mb-2 sm:mb-0">
                             <svg class="w-4 h-4 text-indigo-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            \${offer.address}
+                            ${offer.address}
                         </p>
                         <div class="text-left sm:text-right">
                             <span class="text-xs text-slate-400 uppercase font-bold block">Szac. koszt miesięczny</span>
-                            <span class="text-emerald-600 font-black text-sm">\${offer.priceEstimate}</span>
+                            <span class="text-emerald-600 font-black text-sm">${offer.priceEstimate}</span>
                         </div>
                     </div>
                     
                     <div class="flex gap-4 text-sm border-t border-slate-100 pt-3">
                         <div class="bg-slate-50 px-3 py-2 rounded-lg border border-slate-100 w-1/2">
                             <span class="block text-[10px] uppercase text-slate-400 font-bold tracking-widest">Metraż</span>
-                            <span class="font-black text-slate-800 text-base">\${offer.area}</span>
+                            <span class="font-black text-slate-800 text-base">${offer.area}</span>
                         </div>
                         <div class="bg-slate-50 px-3 py-2 rounded-lg border border-slate-100 w-1/2">
                             <span class="block text-[10px] uppercase text-slate-400 font-bold tracking-widest">Typ oferty</span>
-                            <span class="font-bold text-slate-700 truncate block" title="\${offer.type}">\${offer.type}</span>
+                            <span class="font-bold text-slate-700 truncate block" title="${offer.type}">${offer.type}</span>
                         </div>
                     </div>
-                \`;
+                `;
                 listContainer.appendChild(card);
             });
         }
@@ -519,12 +519,12 @@
                 const isExpired = offer.status === "Wygasła";
                 const bgColor = isExpired ? '#e11d48' : offer.markerColor; // Rose for expired
                 const customIcon = L.divIcon({
-                    html: \`
-                        <div style="background-color: \${bgColor};" class="w-9 h-9 rounded-full border-2 border-white shadow-xl flex items-center justify-center text-white text-[10px] font-black \${isExpired ? 'opacity-70' : ''}">
-                            \${offer.area.split(',')[0]}
+                    html: `
+                        <div style="background-color: ${bgColor};" class="w-9 h-9 rounded-full border-2 border-white shadow-xl flex items-center justify-center text-white text-[10px] font-black ${isExpired ? 'opacity-70' : ''}">
+                            ${offer.area.split(',')[0]}
                         </div>
-                        <div style="border-top-color: \${bgColor};" class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] absolute left-1/2 -translate-x-1/2 -bottom-1 \${isExpired ? 'opacity-70' : ''}"></div>
-                    \`,
+                        <div style="border-top-color: ${bgColor};" class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] absolute left-1/2 -translate-x-1/2 -bottom-1 ${isExpired ? 'opacity-70' : ''}"></div>
+                    `,
                     className: 'relative hover:scale-110 transition-transform z-10',
                     iconSize: [36, 44], iconAnchor: [18, 44]
                 });
@@ -553,21 +553,21 @@
             document.getElementById('modal-title').innerText = offer.title;
             document.getElementById('modal-subtitle').innerText = offer.address;
             
-            document.getElementById('modal-body').innerHTML = \`
+            document.getElementById('modal-body').innerHTML = `
                 <div class="flex items-center gap-2 mb-4 pb-4 border-b border-slate-100">
-                    <span class="text-[10px] font-black px-2 py-1 rounded border uppercase tracking-widest text-slate-600 bg-slate-50 border-slate-200">\${offer.type}</span>
-                    <span class="text-[10px] font-bold uppercase px-2 py-1 rounded \${offer.statusColor}">\${offer.status}</span>
-                    <span class="text-[10px] font-bold uppercase px-2 py-1 rounded border border-slate-200 \${isExpired ? 'text-rose-600 bg-rose-50' : 'text-emerald-600 bg-emerald-50'}">\${offer.timeRemaining}</span>
+                    <span class="text-[10px] font-black px-2 py-1 rounded border uppercase tracking-widest text-slate-600 bg-slate-50 border-slate-200">${offer.type}</span>
+                    <span class="text-[10px] font-bold uppercase px-2 py-1 rounded ${offer.statusColor}">${offer.status}</span>
+                    <span class="text-[10px] font-bold uppercase px-2 py-1 rounded border border-slate-200 ${isExpired ? 'text-rose-600 bg-rose-50' : 'text-emerald-600 bg-emerald-50'}">${offer.timeRemaining}</span>
                 </div>
 
                 <div class="bg-slate-50 p-4 rounded-2xl grid grid-cols-2 gap-4 border border-slate-200 shadow-sm">
                     <div>
                         <span class="block text-[10px] uppercase text-slate-400 font-bold mb-1 tracking-widest">Metraż</span>
-                        <span class="font-black text-xl text-slate-800">\${offer.area}</span>
+                        <span class="font-black text-xl text-slate-800">${offer.area}</span>
                     </div>
                     <div>
                         <span class="block text-[10px] uppercase text-slate-400 font-bold mb-1 tracking-widest">Kondygnacja</span>
-                        <span class="font-black text-xl text-slate-800">\${offer.floor}</span>
+                        <span class="font-black text-xl text-slate-800">${offer.floor}</span>
                     </div>
                 </div>
 
@@ -578,38 +578,38 @@
                     <div class="relative z-10">
                         <span class="block text-[10px] uppercase text-emerald-600 font-black mb-1 tracking-widest">Szacowany koszt najmu</span>
                         <div class="flex items-baseline gap-2 mb-1">
-                            <span class="font-black text-3xl text-emerald-800">\${offer.priceEstimate}</span>
+                            <span class="font-black text-3xl text-emerald-800">${offer.priceEstimate}</span>
                         </div>
-                        <p class="text-xs text-emerald-700 font-medium">Baza: <span class="font-mono bg-white px-1 py-0.5 rounded">\${offer.priceFormula}</span></p>
+                        <p class="text-xs text-emerald-700 font-medium">Baza: <span class="font-mono bg-white px-1 py-0.5 rounded">${offer.priceFormula}</span></p>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
                     <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl">
                         <span class="block text-[10px] uppercase text-amber-700 font-black mb-1">Koszty finansowe wprost</span>
-                        <p class="text-xs text-amber-900 leading-relaxed font-medium">\${offer.financials}</p>
+                        <p class="text-xs text-amber-900 leading-relaxed font-medium">${offer.financials}</p>
                     </div>
                     <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl">
                         <span class="block text-[10px] uppercase text-blue-700 font-black mb-1">Wymogi formalne</span>
-                        <p class="text-xs text-blue-900 leading-relaxed font-medium">\${offer.formals}</p>
+                        <p class="text-xs text-blue-900 leading-relaxed font-medium">${offer.formals}</p>
                     </div>
                 </div>
 
                 <div class="bg-rose-50 border-l-4 border-rose-500 p-4 rounded-r-xl">
                     <span class="block text-xs uppercase text-rose-800 font-bold mb-1">Termin Zgłoszeń / Status</span>
-                    <p class="text-xs text-rose-900 font-medium">\${offer.deadline} \${offer.deadlineDate ? '(do '+new Date(offer.deadlineDate).toLocaleString()+')' : ''}</p>
+                    <p class="text-xs text-rose-900 font-medium">${offer.deadline} ${offer.deadlineDate ? '(do '+new Date(offer.deadlineDate).toLocaleString()+')' : ''}</p>
                 </div>
 
                 <div>
                     <h4 class="font-black text-slate-900 text-sm border-b border-slate-100 pb-2 mb-2">Charakterystyka obiektu</h4>
-                    <p class="leading-relaxed text-sm text-slate-600">\${offer.description}</p>
+                    <p class="leading-relaxed text-sm text-slate-600">${offer.description}</p>
                 </div>
 
                 <div class="bg-slate-100 p-5 rounded-xl mt-4 text-center border border-slate-200">
                     <span class="block text-[10px] uppercase text-slate-500 font-bold mb-1 tracking-widest">Kontakt ds. udostępnienia</span>
-                    <p class="text-sm font-black text-slate-800">\${offer.contact}</p>
+                    <p class="text-sm font-black text-slate-800">${offer.contact}</p>
                 </div>
-            \`;
+            `;
 
             const modal = document.getElementById('details-modal');
             const wrapper = document.getElementById('details-content-wrapper');
