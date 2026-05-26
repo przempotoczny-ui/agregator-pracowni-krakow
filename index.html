@@ -149,172 +149,23 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     
     <script>
-        // PEŁNA AGREGACJA OFERT: BIP (KD-19), ZBK, ZPAP, Wolny Rynek
-        const allOffersData = [
-            {
-                id: 1, sourceCategory: "KD-19",
-                title: "Obszerny lokal blisko Rynku z łazienką", address: "ul. Szewska 4A, Kraków",
-                type: "Miejski Program (KD-19)", status: "Oczekiwanie na nowy wykaz",
-                deadline: "Cykliczne nabory. Sprawdzaj BIP.", deadlineDate: "2026-05-30T15:00:00", area: "44,82 m²", floor: "2 piętro",
-                lat: 50.0620, lng: 19.9348,
-                priceEstimate: "ok. 450 - 600 zł / m-c", priceFormula: "6,50 - 8,50 zł/m² + ogrzewanie",
-                description: "Wyjątkowa lokalizacja obok Rynku. Posiada 3 wydzielone pomieszczenia oraz węzeł sanitarny. Doskonałe na cichą pracownię (malarstwo, rysunek).",
-                contact: "ZBK - BOM 1 (Rynek Kleparski 4), tel. 12 291 29 07",
-                financials: "Strefa I - najwyższy czynsz komunalny. Niski koszt remontu wejściowego.",
-                formals: "Wysoce konkurencyjna oferta - wymaga bardzo mocnego portfolio przed Komisją.",
-                statusColor: "bg-indigo-100 text-indigo-800", markerColor: "#4f46e5",
-                originalStatus: "Oczekiwanie na nowy wykaz", originalStatusColor: "bg-indigo-100 text-indigo-800"
-            },
-            {
-                id: 2, sourceCategory: "KD-19",
-                title: "Zestaw 3 pomieszczeń na Śródmieściu", address: "ul. Bonerowska 14, Kraków",
-                type: "Miejski Program (KD-19)", status: "Oczekiwanie na nowy wykaz",
-                deadline: "Nabory cykliczne.", deadlineDate: "2026-05-24T10:00:00", area: "68,60 m²", floor: "3 piętro",
-                lat: 50.0588, lng: 19.9455,
-                priceEstimate: "ok. 500 zł / m-c", priceFormula: "Stawka ZBK + media",
-                description: "Przestronny lokal, 3 połączone izby robocze oraz węzły sanitarne. Duży metraż = preferencje dla kolektywu.",
-                contact: "ZBK - BOM 1 (Rynek Kleparski 4), tel. 12 291 29 02",
-                financials: "Koszty adaptacyjne i opłaty dzielone na kolektyw.",
-                formals: "Wniosek grupy twórczej (współnajemców).",
-                statusColor: "bg-indigo-100 text-indigo-800", markerColor: "#4f46e5",
-                originalStatus: "Oczekiwanie na nowy wykaz", originalStatusColor: "bg-indigo-100 text-indigo-800"
-            },
-            {
-                id: 3, sourceCategory: "KD-19",
-                title: "Przyziemie pod ciężki sprzęt", address: "ul. Mogilska 15A, Kraków",
-                type: "Miejski Program (KD-19)", status: "Archiwalny / W rozpatrywaniu",
-                deadline: "Nabór zamknięty. Trwa opiniowanie przez Komisję.", deadlineDate: "2026-05-20T12:00:00", area: "22,45 m²", floor: "Parter",
-                lat: 50.0655, lng: 19.9575,
-                priceEstimate: "ok. 120 zł / m-c", priceFormula: "1,89 - 3,50 zł/m² + prąd",
-                description: "Jedno pomieszczenie w przyziemiu wraz z łazienką. Parter jest idealny dla rzeźbiarzy czy grafików.",
-                contact: "ZBK - BOM 1 (Rynek Kleparski 4), tel. 12 291 29 07",
-                financials: "Zabezpieczenie przed wilgocią we własnym zakresie. Niezwykle niski czynsz.",
-                formals: "Udokumentowanie konieczności pracy na parterze (prasy, piece).",
-                statusColor: "bg-slate-200 text-slate-700", markerColor: "#64748b",
-                originalStatus: "Archiwalny / W rozpatrywaniu", originalStatusColor: "bg-slate-200 text-slate-700"
-            },
-            {
-                id: 4, sourceCategory: "KD-19",
-                title: "Olbrzymi lokal na Podgórzu (5 pokoi)", address: "pl. Serkowskiego 6, Kraków",
-                type: "Miejski Program (KD-19)", status: "Archiwalny",
-                deadline: "Nabór zamknięty.", deadlineDate: "2026-05-15T00:00:00", area: "111,16 m²", floor: "1 piętro",
-                lat: 50.0416, lng: 19.9465,
-                priceEstimate: "ok. 800 zł / m-c", priceFormula: "Stawka ZBK * 111m²",
-                description: "5 pomieszczeń do pracy i 2 toalety. Prawdziwa gratka dla większej grupy artystów w historycznym Podgórzu.",
-                contact: "ZBK - BOM 3 (ul. Zamoyskiego 3)",
-                financials: "Wysokie koszty kompleksowego remontu (lokal > 100m²).",
-                formals: "Wyłącznie współnajem (kolektyw min. 3 artystów).",
-                statusColor: "bg-slate-200 text-slate-700", markerColor: "#64748b",
-                originalStatus: "Archiwalny", originalStatusColor: "bg-slate-200 text-slate-700"
-            },
-            {
-                id: 5, sourceCategory: "KD-19",
-                title: "Strych z oknami połaciowymi", address: "ul. Sołtyka 5, Kraków",
-                type: "Miejski Program (KD-19)", status: "Oczekiwanie na nowy wykaz",
-                deadline: "Sprawdzaj BIP.", deadlineDate: "2026-06-15T12:00:00", area: "68,00 m²", floor: "4 piętro (brak windy)",
-                lat: 50.0592, lng: 19.9515,
-                priceEstimate: "ok. 300 zł / m-c", priceFormula: "1,89 - 4,50 zł/m² + media",
-                description: "Przestronny strych zaadaptowany na cele twórcze. Doskonałe naturalne światło północne (okna połaciowe).",
-                contact: "Wydział Kultury UMK: tel. 12 616 19 18",
-                financials: "Remont ocieplenia i instalacji wod-kan na własny koszt.",
-                formals: "Ocena portfolio przez Komisję UMK.",
-                statusColor: "bg-indigo-100 text-indigo-800", markerColor: "#4f46e5",
-                originalStatus: "Oczekiwanie na nowy wykaz", originalStatusColor: "bg-indigo-100 text-indigo-800"
-            },
-            {
-                id: 6, sourceCategory: "KD-19",
-                title: "Pracownia w Nowej Hucie", address: "os. Szkolne 34, Kraków",
-                type: "Miejski Program (KD-19)", status: "Oczekiwanie na nowy wykaz",
-                deadline: "Sprawdzaj BIP.", deadlineDate: "2026-06-01T10:00:00", area: "19,83 m²", floor: "4 piętro",
-                lat: 50.0760, lng: 20.0380,
-                priceEstimate: "ok. 150 zł / m-c", priceFormula: "Stawka ZBK (Huta) + centralne ogrzewanie",
-                description: "Bardzo jasne pomieszczenie zlokalizowane wysoko. W sąsiedztwie w dawnej szkole działają inni artyści.",
-                contact: "ZBK - BOM 4 (os. Centrum C 10B)",
-                financials: "Czynsz zryczałtowany wraz z centralnym ogrzewaniem.",
-                formals: "Dyplom ASP lub rekomendacje.",
-                statusColor: "bg-indigo-100 text-indigo-800", markerColor: "#4f46e5",
-                originalStatus: "Oczekiwanie na nowy wykaz", originalStatusColor: "bg-indigo-100 text-indigo-800"
-            },
-            {
-                id: 7, sourceCategory: "KD-19",
-                title: "Cichy Kazimierz dla Kolektywu", address: "ul. Berka Joselewicza 5, Kraków",
-                type: "Miejski Program (KD-19)", status: "Oczekiwanie na nowy wykaz",
-                deadline: "Sprawdzaj BIP.", deadlineDate: "2026-05-28T16:00:00", area: "85,65 m²", floor: "1 piętro",
-                lat: 50.0535, lng: 19.9485,
-                priceEstimate: "ok. 650 zł / m-c", priceFormula: "Stawka strefy I + media",
-                description: "4 pomieszczenia w kultowej dzielnicy. Blisko licznych galerii sztuki.",
-                contact: "ZBK - BOM 6 (pl. Na Groblach 7)",
-                financials: "Wymaga sporych nakładów na generalny remont przed startem.",
-                formals: "Kolektyw artystyczny.",
-                statusColor: "bg-indigo-100 text-indigo-800", markerColor: "#4f46e5",
-                originalStatus: "Oczekiwanie na nowy wykaz", originalStatusColor: "bg-indigo-100 text-indigo-800"
-            },
-            {
-                id: 8, sourceCategory: "KD-19",
-                title: "Mała pracownia (os. Kolorowe)", address: "os. Kolorowe 12, Kraków",
-                type: "Miejski Program (KD-19)", status: "Oczekiwanie na nowy wykaz",
-                deadline: "Sprawdzaj BIP.", deadlineDate: "2026-05-25T23:59:59", area: "14,95 m²", floor: "5 piętro",
-                lat: 50.0750, lng: 20.0210,
-                priceEstimate: "ok. 90 zł / m-c", priceFormula: "Stawka ZBK poza centrum",
-                description: "2 małe pokoiki i WC. Piąte piętro zapewnia spokój, ale bez windy trudne wnoszenie płócien.",
-                contact: "ZBK - BOM 4 (os. Centrum C 10B)",
-                financials: "Najniższe z możliwych opłaty w mieście.",
-                formals: "Wniosek indywidualny.",
-                statusColor: "bg-indigo-100 text-indigo-800", markerColor: "#4f46e5",
-                originalStatus: "Oczekiwanie na nowy wykaz", originalStatusColor: "bg-indigo-100 text-indigo-800"
-            },
-
-            // --- ŹRÓDŁO: ZPAP (ZWIĄZKOWE) ---
-            {
-                id: 9, sourceCategory: "ZPAP",
-                title: "Pawilon Rzeźbiarski ZPAP", address: "ul. Emaus 20, Kraków (Wola Justowska)",
-                type: "Zarząd ZPAP Kraków", status: "Konkurs Ofert",
-                deadline: "Wewnętrzne ogłoszenia Związku", deadlineDate: "2026-06-10T15:00:00", area: "ok. 35,00 m²", floor: "Parter (Hala)",
-                lat: 50.0545, lng: 19.8970,
-                priceEstimate: "ok. 450 zł / m-c", priceFormula: "Uchwały Zarządu ZPAP",
-                description: "Legendarne pawilony zbudowane z myślą o krakowskich rzeźbiarzach. Posiadają odpowiednią konstrukcję, doświetlenie i dojazd.",
-                contact: "Biuro Zarządu Okręgu ZPAP w Krakowie",
-                financials: "Brak zwrotu kosztów adaptacji. Czynsz regulowany przez Związek.",
-                formals: "OFERTA TYLKO DLA CZYNNYCH CZŁONKÓW ZPAP (opłacone składki).",
-                statusColor: "bg-amber-100 text-amber-800", markerColor: "#d97706",
-                originalStatus: "Konkurs Ofert", originalStatusColor: "bg-amber-100 text-amber-800"
-            },
-
-            // --- ŹRÓDŁO: PRYWATNE / RYNEK / FUNDACJE ---
-            {
-                id: 10, sourceCategory: "Prywatne",
-                title: "Kameralny lokal w oficynie fundacji", address: "ul. Józefa 22, Kraków",
-                type: "Rynek Prywatny / Fundacja", status: "Dostępne od zaraz",
-                deadline: "Oferta z wolnego rynku", deadlineDate: null, area: "32,00 m²", floor: "1 piętro (oficyna)",
-                lat: 50.0506, lng: 19.9458,
-                priceEstimate: "1 400 zł / m-c", priceFormula: "43,75 zł/m² rynkowa",
-                description: "Cichy pokój dedykowany pracy koncepcyjnej lub małej pracowni (np. ilustracja, biżuteria). Okna na zielone podwórko Kazimierza.",
-                contact: "Prywatny Właściciel, tel. 504-xxx-xxx",
-                financials: "Rynkowa stawka, ale gotowe do wejścia (odpada koszt remontu z KD-19). Kaucja 1 miesiąc.",
-                formals: "Bez procedury miejskiej. Umowa B2B lub najem okazjonalny.",
-                statusColor: "bg-emerald-100 text-emerald-800", markerColor: "#10b981",
-                originalStatus: "Dostępne od zaraz", originalStatusColor: "bg-emerald-100 text-emerald-800"
-            },
-            {
-                id: 11, sourceCategory: "Prywatne",
-                title: "Gotowe przyziemie pod ceramikę", address: "ul. Blich 5, Kraków",
-                type: "Rynek Prywatny", status: "Dostępne od zaraz",
-                deadline: "Oferta z wolnego rynku", deadlineDate: "2026-05-27T18:00:00", area: "38,00 m²", floor: "Przyziemie",
-                lat: 50.0598, lng: 19.9488,
-                priceEstimate: "1 550 zł / m-c", priceFormula: "40,78 zł/m² + woda/prąd",
-                description: "Lokal po remoncie instalacji siłowej (3-fazy). Doskonały na studio ceramiki, z osobnym wejściem od dziedzińca, nikomu nie przeszkadza hałas.",
-                contact: "Prywatny Wynajem, tel. 501-xxx-xxx",
-                financials: "Stała stawka czynszu rynkowego. Kaucja zwrotna 2500 zł.",
-                formals: "Bez weryfikacji portfolio artystycznego. Podpisanie umowy na min. rok.",
-                statusColor: "bg-emerald-100 text-emerald-800", markerColor: "#10b981",
-                originalStatus: "Dostępne od zaraz", originalStatusColor: "bg-emerald-100 text-emerald-800"
-            }
-        ];
+        let allOffersData = [];
 
         let map = null;
         let markersGroup = [];
         let currentFilter = 'ALL';
         let updateInterval = null;
+
+        async function fetchOffers() {
+            try {
+                const response = await fetch('./data.json?t=' + new Date().getTime());
+                if (!response.ok) throw new Error('Błąd pobierania danych');
+                allOffersData = await response.json();
+            } catch (error) {
+                console.error("Nie udało się pobrać ofert:", error);
+                allOffersData = [];
+            }
+        }
 
         function updateOffersStatus() {
             const now = new Date();
@@ -354,14 +205,19 @@
                 triggerSyncAnimation();
             } else {
                 updateSyncText(lastSync);
+                updateOffersStatus();
+                renderList();
+                if (map) renderMapMarkers();
             }
         }
 
-        function triggerSyncAnimation() {
+        async function triggerSyncAnimation() {
             const icons = [document.getElementById('sync-icon'), document.getElementById('sync-icon-mobile')];
             const texts = [document.getElementById('sync-text'), document.getElementById('sync-text-mobile')];
             icons.forEach(i => i && i.classList.add('is-syncing'));
             texts.forEach(t => t && (t.innerText = "Agregowanie źródeł..."));
+
+            await fetchOffers(); // Fetch latest data during animation
 
             setTimeout(() => {
                 icons.forEach(i => i && i.classList.remove('is-syncing'));
@@ -370,7 +226,8 @@
                 updateSyncText(now);
                 updateOffersStatus(); 
                 renderList(); 
-            }, 2000);
+                if (map) renderMapMarkers();
+            }, 1000);
         }
 
         function updateSyncText(timestamp) {
@@ -382,7 +239,8 @@
 
         function forceSync() { triggerSyncAnimation(); }
 
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
+            await fetchOffers(); // Load initial data
             updateOffersStatus();
             updateInterval = setInterval(() => {
                 updateOffersStatus();
